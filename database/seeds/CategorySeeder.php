@@ -13,10 +13,10 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            ['label' => 'HTML', 'color' => 'danger'],
-            ['label' => 'CSS', 'color' => 'primary'],
-            ['label' => 'JS', 'color' => 'info'],
-            ['label' => 'PHP', 'color' => 'light']
+            ['label' => 'News', 'color' => 'success'],
+            ['label' => 'Esplorazione', 'color' => 'primary'],
+            ['label' => 'Osservazione', 'color' => 'info'],
+            ['label' => 'Scoperte', 'color' => 'danger']
         ];
 
         foreach($categories as $category){
