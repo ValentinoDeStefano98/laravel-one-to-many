@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -35,51 +37,61 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $category = new Post();
+
+        $category->fill($data);
+        $category->save();
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
     {
-        //
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->all();
+        $category->update($data);
+
+        return redirect()->route('admin.categories.show', $category);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index')->with('message', "La categoria: $category->label è stata eliminata");
     }
 }

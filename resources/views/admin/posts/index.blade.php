@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-
+    <div class="">
         @if ( session('message') )
             <div class="alert alert-success">
                 {{ session('message') }}
@@ -36,11 +35,18 @@
                                 -
                             @endif
                         </td>
-                        <td>
-                            <p>{{$post->content}}</p>
+                        <td class="">
+                            <div class="overflow">
+                                <p>{{$post->content}}</p>
+                            </div>
+                            <div>
+                                <a href="{{route('admin.posts.show', $post->id)}}">Continua a leggere...</a>
+                            </div>
+                            
+                            
                         </td>
                         <td>
-                            <img src="{{$post->image}}" alt="{{$post->title}}">
+                            <img class="img-fluid "src="{{$post->image}}" alt="{{$post->title}}">
                         </td>
                         <td>{{$post->slug}}</td>
                         <td class="d-flex">

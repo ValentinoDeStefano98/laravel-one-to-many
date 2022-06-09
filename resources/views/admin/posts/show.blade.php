@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container text-center">
-        <img src="{{$post->image}}" alt="{{$post->title}}" class="pb-3">
+        <img src="{{$post->image}}" alt="{{$post->title}}" class="pb-3 img-fluid">
         <h2>{{$post->title}}</h2>
         @if($post->category)
             <span class="badge badge-pill badge-{{$post->Category->color}}">{{$post->Category->label}}</span>

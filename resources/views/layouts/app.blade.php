@@ -21,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm justify-content-center">
+            <div class="container m-0 p-0">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    NASA
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/110px-NASA_logo.svg.png" alt="logo nasa">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -33,8 +33,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    <li>
+                    <li class="mx-3">
                         <a href="{{route('admin.posts.index')}}">Posts</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.categories.index')}}">Categories</a>
                     </li>
                     </ul>
 
