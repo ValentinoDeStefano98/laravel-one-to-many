@@ -4,7 +4,6 @@
             <div class="col-md-8">
                 <div>
                     <Header/>
-
                     <div class="card-body">
                         <h2 class="text">Sito in costruzione</h2>
                     </div>
@@ -21,6 +20,5 @@ export default{
     components: {
         Header
     }
-}
-    
+}   
 </script>
