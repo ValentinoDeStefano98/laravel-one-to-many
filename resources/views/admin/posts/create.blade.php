@@ -27,7 +27,18 @@
                     <textarea name="image" id="image" placeholder="Immagine del post"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-success">Crea</button>
+                <hr>
+
+                @foreach($tags as $tag)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="tag-{{$tag->id}}" value="{{$tag->id}}" name="tags[]" @if(in_array($tag->id, old('tags', [])))checked @endif>
+                        <label class="form-check-label" for="tag-{{$tag->id}}">{{$tag->label}}</label>
+                    </div>
+                @endforeach
+
+                <div>
+                    <button type="submit" class="btn btn-success">Crea</button>
+                </div>
         </form>
     </div>
 @endsection

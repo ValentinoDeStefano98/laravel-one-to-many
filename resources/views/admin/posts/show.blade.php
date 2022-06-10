@@ -10,6 +10,14 @@
             -
         @endif
         <p>{{$post->content}}</p>
+
+        <h3>tags:</h3>
+        @forelse ($post->tags as $tag)
+            <span class="badge badge-primary">{{$tag->label}}</span>
+
+        @empty
+            <h3>Non ci sono tag</h3>
+        @endforelse
         <!-- <form action="{{route('admin.posts.destroy', $post->id)}}" method="POST" class="delete-form">
             @method('DELETE')
             @csrf
